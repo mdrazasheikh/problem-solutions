@@ -1,3 +1,5 @@
+package java;
+
 public class LinkUniqueChecker {
 
     public static boolean isSimilar(String link1, String link2) {

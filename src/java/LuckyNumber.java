@@ -1,3 +1,5 @@
+package java;
+
 public class LuckyNumber {
 
     static int counter = 2;

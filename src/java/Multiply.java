@@ -1,3 +1,5 @@
+package java;
+
 public class Multiply {
 
     public static int doMultiply(int x, int y) {

@@ -1,4 +1,4 @@
-package sort;
+package java.sort;
 
 import java.util.Arrays;
 
@@ -36,10 +36,10 @@ public class QuickSort {
         int[] arrayToSort = {1, 10, 7, 4, 9, 5, 8, 3, 2, 6};
         int arrayLength = arrayToSort.length;
 
-        System.out.println("Array before sort: " + Arrays.toString(arrayToSort));
+        System.out.println("Array before java.sort: " + Arrays.toString(arrayToSort));
 
         quickSort(arrayToSort, 0, arrayLength - 1);
 
-        System.out.println("Array after sort: " + Arrays.toString(arrayToSort));
+        System.out.println("Array after java.sort: " + Arrays.toString(arrayToSort));
     }
 }

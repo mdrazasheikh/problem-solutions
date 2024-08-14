@@ -1,4 +1,4 @@
-package sort;
+package java.sort;
 
 import java.util.Arrays;
 
@@ -57,7 +57,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] arrayToSort = {1, 10, 4, 2, 5, 6, 9, 3, 8, 7};
-        System.out.println("Array to sort: " + Arrays.toString(arrayToSort));
+        System.out.println("Array to java.sort: " + Arrays.toString(arrayToSort));
 
         MergeSort ob = new MergeSort();
         ob.sort(arrayToSort, 0, arrayToSort.length - 1);

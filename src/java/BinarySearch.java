@@ -1,3 +1,5 @@
+package java;
+
 public class BinarySearch {
 
     public static int search(int[] x, int target) {

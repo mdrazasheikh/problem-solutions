@@ -1,7 +1,8 @@
+package java;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 class Card {
     //public static enum Face {Ace, Deuce, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King};
@@ -47,19 +48,19 @@ class Card {
         return face;
     }
 
-    // return suit of Card
+    // return suit of java.Card
     public Suit getSuit() {
         return suit;
     }
 
-    // return String representation of Card
+    // return String representation of java.Card
     public String toString() {
         //return String.format( "%s.%s", suit.getOrder(), face.getRank() );
         return String.format("%s.%s", suit, face);
     }
 }
 
-// class DeckOfCards declaration
+// class java.DeckOfCards declaration
 public class DeckOfCards {
     private final List<Card> list; // declare List that will store Cards
 
@@ -68,7 +69,7 @@ public class DeckOfCards {
         Card[] deck = new Card[52];
         int count = 0; // number of cards
 
-        // populate deck with Card objects
+        // populate deck with java.Card objects
         for (Card.Suit suit : Card.Suit.values()) {
             for (Card.Face face : Card.Face.values()) {
                 deck[count] = new Card(face, suit);
