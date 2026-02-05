@@ -1,4 +1,4 @@
-package java.sort;
+package interview.sort;
 
 public class SelectionSort {
 }

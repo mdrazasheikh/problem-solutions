@@ -18,7 +18,7 @@ public static TreeNode invertTree(TreeNode root) {
 public static void printInOrder(TreeNode root) {
     if (root == null) return;
     printInOrder(root.left);
-    IO.print(root.val + " ");
+    System.out.print(root.val + " ");
     printInOrder(root.right);
 }
 
@@ -31,12 +31,12 @@ void main() {
     root.right.left = new TreeNode(6);
     root.right.right = new TreeNode(9);
 
-    IO.print("Before: ");
+    System.out.print("Before: ");
     printInOrder(root);
-    IO.println();
+    System.out.println();
     invertTree(root);
-    IO.print("After: ");
+    System.out.print("After: ");
     printInOrder(root);
-    IO.println();
+    System.out.println();
     // Expected After (inorder): 9 7 6 4 3 2 1
 }

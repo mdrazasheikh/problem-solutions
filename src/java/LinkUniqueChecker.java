@@ -1,4 +1,4 @@
-package java;
+package interview;
 
 public class LinkUniqueChecker {
 

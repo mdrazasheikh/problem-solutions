@@ -1,3 +1,5 @@
+import java.util.*;
+
 public static boolean isValidTree(int n, int[][] edges) {
     if (edges.length != n - 1) return false; // quick structural check
 
@@ -27,11 +29,11 @@ public static boolean isValidTree(int n, int[][] edges) {
 
 void main() {
     int[][] edges1 = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
-    IO.println(isValidTree(5, edges1)); // true
+    System.out.println(isValidTree(5, edges1)); // true
 
     int[][] edges2 = {{0, 1}, {1, 2}, {2, 0}};
-    IO.println(isValidTree(3, edges2)); // false (cycle)
+    System.out.println(isValidTree(3, edges2)); // false (cycle)
 
     int[][] edges3 = {{0, 1}, {2, 3}};
-    IO.println(isValidTree(4, edges3)); // false (disconnected)
+    System.out.println(isValidTree(4, edges3)); // false (disconnected)
 }

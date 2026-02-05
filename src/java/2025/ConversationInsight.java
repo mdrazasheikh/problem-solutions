@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 static class Message {
     String author;
     String text;
@@ -44,6 +49,6 @@ void main() {
             new Message("agent", "Can you try resetting your password?")
     );
 
-    IO.println(summarizeConversation(messages));
+    System.out.println(summarizeConversation(messages));
     // Counts: {agent=2, user=1}, AvgUserWords ≈ 6.0
 }

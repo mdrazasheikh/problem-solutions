@@ -21,7 +21,7 @@ public static int minDistance(String word1, String word2) {
 }
 
 void main() {
-    IO.println(minDistance("horse", "ros"));     // 3
-    IO.println(minDistance("intention", "execution")); // 5
-    IO.println(minDistance("", "abc"));          // 3
+    System.out.println(minDistance("horse", "ros"));     // 3
+    System.out.println(minDistance("intention", "execution")); // 5
+    System.out.println(minDistance("", "abc"));          // 3
 }

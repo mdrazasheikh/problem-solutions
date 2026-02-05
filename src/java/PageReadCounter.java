@@ -1,4 +1,4 @@
-package java;
+package interview;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
