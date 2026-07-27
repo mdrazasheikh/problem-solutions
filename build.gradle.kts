@@ -9,13 +9,6 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        java.srcDirs("src/java")
-        kotlin.srcDirs("src/kotlin")
-    }
-}
-
 kotlin {
     jvmToolchain(21)
 }
