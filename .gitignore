@@ -27,4 +27,8 @@ hs_err_pid*
 *.iml
 
 .DS_Store
-out
+out/
+
+# Gradle
+.gradle/
+build/
