@@ -13,6 +13,17 @@ public class Reverse {
             N = N / 10;
         }
     }
+
+    void main(String[] args) {
+        solution(54321);
+        System.out.println();
+        solution(10011);
+        System.out.println();
+        solution(1);
+        System.out.println();
+        solution(1011011000);
+        System.out.println();
+    }
 }
 
 /**

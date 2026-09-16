@@ -34,6 +34,14 @@ public class Dice {
 
         return result;
     }
+
+    void main(String[] args) {
+        System.out.println(Arrays.toString(solution(new int[]{3, 2, 4, 3}, 2, 4)));
+        System.out.println(Arrays.toString(solution(new int[]{1, 5, 6}, 4, 3)));
+        System.out.println(Arrays.toString(solution(new int[]{1, 2, 3, 4}, 4, 6)));
+        System.out.println(Arrays.toString(solution(new int[]{6, 1}, 1, 1)));
+    }
+
     /**
      * Example test:   ([3, 2, 4, 3], 2, 4)
      * OK

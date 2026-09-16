@@ -78,7 +78,7 @@ class Result1 {
 }
 
 public class DiscountCode {
-    public static void main(String[] args){
+    static void main(String[] args){
         List<String> codes =new ArrayList<>();
         codes.add("daabbd");
         codes.add("abc");

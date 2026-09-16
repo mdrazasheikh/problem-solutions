@@ -15,7 +15,7 @@ public class Angle {
             b[i + n] = A[i] + 360;
         }
 
-        long[] runningSum = new long[2 * n];
+        long[] runningSum = new long[2 * n + 1];
         for (int i = 0; i < 2 * n; i++) {
             runningSum[i + 1] = runningSum[i] + b[i];
         }
@@ -34,6 +34,12 @@ public class Angle {
         }
 
         return (int) minCost;
+    }
+
+    void main(String[] args) {
+        System.out.println(solution(new int[]{20, 50, 100, 200}));
+        System.out.println(solution(new int[]{350, 0, 0}));
+        System.out.println(solution(new int[]{270, 301, 301, 302, 50, 70, 100}));
     }
 }
 
