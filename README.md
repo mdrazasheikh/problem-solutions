@@ -63,7 +63,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Count of Balloon<br><sub>aka maximum number of balloons, form word from letters</sub> | `counting`, `hashmap`, `string` | `O(n)` | `O(1)` | [src](src/main/java/countofballoon) | — |
 | Deck of Cards<br><sub>aka model a card deck, suits and faces</sub> | `collections`, `design`, `enum`, `oop` | `O(n)` | `O(n)` | [src](src/main/java/deckofcards) | — |
 | Design Search Autocomplete<br><sub>aka leetcode 642, autocomplete system, trie suggestions</sub> | `autocomplete`, `design`, `prefix`, `string`, `trie` | `O(p + r)` | `O(n * l)` | — | [src](src/main/kotlin/searchString) |
-| Discount Code<br><sub>aka palindrome after insertion, valid discount string</sub> | `palindrome`, `string`, `two-pointer` | `O(n)` | `O(n)` | [src](src/main/java/discountcode) | — |
+| Discount Code<br><sub>aka valid discount coupon, reduce string by cancelling adjacent pairs</sub> | `reduction`, `stack`, `string` | `O(n)` | `O(n)` | [src](src/main/java/discountcode) | — |
 | Event Dispatcher — Live Coding Review<br><sub>aka publish subscribe, double checked locking, lapsed listener, find the bugs</sub> | `code-review`, `concurrency`, `design`, `observer`, `pub-sub`, `singleton`, `thread-safety` | `—` | `—` | [src](src/main/java/db/livecoding) | — |
 | First Unique Character<br><sub>aka first non repeating character</sub> | `counting`, `hashmap`, `string` | `O(n)` | `O(1)` | [src](src/main/java/firstuniquechar) | — |
 | FizzBuzz<br><sub>aka fizz buzz multiples of three and five</sub> | `math`, `simulation`, `string` | `O(n)` | `O(n)` | — | [src](src/main/kotlin/fizzBuzz) |
@@ -95,7 +95,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Rate Limiter — Sliding Window<br><sub>aka request throttling, sliding window counter, too many requests</sub> | `deque`, `design`, `rate-limiting`, `sliding-window` | `O(1) amortised` | `O(w)` | [src](src/main/java/ratechecker) | — |
 | Reverse Number<br><sub>aka print digits in reverse, reverse an integer</sub> | `digits`, `math` | `O(d)` | `O(1)` | [src](src/main/java/reverse) | — |
 | Rotate Linked List<br><sub>aka rotate a list right by k, ring and break</sub> | `cycle`, `linked-list`, `two-pointer` | `O(n)` | `O(1)` | [src](src/main/java/rotatelinkedlist) | — |
-| Search Suggestions System<br><sub>aka suggestions per growing prefix, typeahead over a list</sub> | `autocomplete`, `prefix`, `regex`, `string` | `O(p * r * l)` | `O(p * r)` | [src](src/main/java/searchsuggestions) | — |
+| Search Suggestions System<br><sub>aka suggestions per growing prefix, typeahead over a list</sub> | `autocomplete`, `prefix`, `sorting`, `string` | `O(r log r + p * r * l)` | `O(r)` | [src](src/main/java/searchsuggestions) | — |
 | Selection Sort<br><sub>aka repeatedly select the smallest</sub> | `in-place`, `sorting` | `O(n^2)` | `O(1)` | [src](src/main/java/selectionsort) | — |
 | Smallest Missing Positive Integer<br><sub>aka first missing positive, smallest positive not in array</sub> | `array`, `boolean-sieve`, `counting` | `O(n)` | `O(n)` | [src](src/main/java/smallestpositiveinteger) | — |
 | Sort Colors<br><sub>aka dutch national flag, sort zeros ones twos, leetcode 75</sub> | `array`, `dutch-national-flag`, `in-place`, `sorting`, `two-pointer` | `O(n)` | `O(1)` | — | [src](src/main/kotlin/sortColors) |
@@ -158,7 +158,6 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 - **`observer`** — Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding)
 - **`one-pass`** — Conversation Insight [j](src/main/java/conversationinsight)
 - **`oop`** — Deck of Cards [j](src/main/java/deckofcards)
-- **`palindrome`** — Discount Code [j](src/main/java/discountcode)
 - **`partition`** — Quick Sort [j](src/main/java/quicksort)
 - **`pattern-matching`** — Fresh Promo Code [j](src/main/java/freshpromocode)
 - **`playground`** — Kotlin Basics [k](src/main/kotlin/kotlinBasics)
@@ -169,18 +168,19 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 - **`queue`** — Graph Valid Tree [j](src/main/java/graphtree), Level Order Traversal [j](src/main/java/levelordertraversalofbinarytree)
 - **`rate-limiting`** — Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
 - **`recursion`** — Climbing Stairs [j](src/main/java/staircase), Invert Binary Tree [j](src/main/java/invertbinarytree), Lucky Number [j](src/main/java/luckynumber), Merge Sort [j](src/main/java/mergesort), Multiply Without the Operator [j](src/main/java/multiply), Quick Sort [j](src/main/java/quicksort)
-- **`regex`** — Fresh Promo Code [j](src/main/java/freshpromocode), Search Suggestions System [j](src/main/java/searchsuggestions)
+- **`reduction`** — Discount Code [j](src/main/java/discountcode)
+- **`regex`** — Fresh Promo Code [j](src/main/java/freshpromocode)
 - **`simulation`** — Agent Assignment [j](src/main/java/agentassignment), Average Waiting Time [k](src/main/kotlin/averageWaitingTime), FizzBuzz [k](src/main/kotlin/fizzBuzz), Spiral Matrix [j](src/main/java/spiraltraversal)
 - **`singleton`** — Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding)
 - **`sliding-window`** — Contiguous Range Sum [k](src/main/kotlin/subsetSum), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
 - **`sorted-array`** — Binary Search [j](src/main/java/binarysearch)
-- **`sorting`** — Group Anagrams [j](src/main/java/groupedanagram), Heap Sort [j](src/main/java/heapsort), Merge Sort [j](src/main/java/mergesort), Minimum Circular Alignment Cost [j](src/main/java/angle), Quick Sort [j](src/main/java/quicksort), Selection Sort [j](src/main/java/selectionsort), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray)
-- **`stack`** — Valid Parentheses [j](src/main/java/validparenthesis) [k](src/main/kotlin/validParenthesis)
+- **`sorting`** — Group Anagrams [j](src/main/java/groupedanagram), Heap Sort [j](src/main/java/heapsort), Merge Sort [j](src/main/java/mergesort), Minimum Circular Alignment Cost [j](src/main/java/angle), Quick Sort [j](src/main/java/quicksort), Search Suggestions System [j](src/main/java/searchsuggestions), Selection Sort [j](src/main/java/selectionsort), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray)
+- **`stack`** — Discount Code [j](src/main/java/discountcode), Valid Parentheses [j](src/main/java/validparenthesis) [k](src/main/kotlin/validParenthesis)
 - **`string`** — Conversation Insight [j](src/main/java/conversationinsight), Count of Balloon [j](src/main/java/countofballoon), Design Search Autocomplete [k](src/main/kotlin/searchString), Discount Code [j](src/main/java/discountcode), First Unique Character [j](src/main/java/firstuniquechar), FizzBuzz [k](src/main/kotlin/fizzBuzz), Fresh Promo Code [j](src/main/java/freshpromocode), Group Anagrams [j](src/main/java/groupedanagram), Levenshtein Distance [j](src/main/java/levenshteindistance), Link Unique Checker [j](src/main/java/linkuniquechecker), Longest Ideal Subsequence [k](src/main/kotlin/longestIdealSequence), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Search Suggestions System [j](src/main/java/searchsuggestions), Valid Parentheses [j](src/main/java/validparenthesis) [k](src/main/kotlin/validParenthesis)
 - **`substring`** — Link Unique Checker [j](src/main/java/linkuniquechecker)
 - **`thread-safety`** — Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding)
 - **`treeset`** — Agent Assignment [j](src/main/java/agentassignment)
 - **`trie`** — Design Search Autocomplete [k](src/main/kotlin/searchString)
-- **`two-pointer`** — Contiguous Range Sum [k](src/main/kotlin/subsetSum), Discount Code [j](src/main/java/discountcode), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Maximum Twin Pair Sum [j](src/main/java/pagereadcounter), Merge Two Sorted Lists [k](src/main/kotlin/sortedList), Move Zeroes [j](src/main/java/movezeros), Rotate Linked List [j](src/main/java/rotatelinkedlist), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray)
+- **`two-pointer`** — Contiguous Range Sum [k](src/main/kotlin/subsetSum), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Maximum Twin Pair Sum [j](src/main/java/pagereadcounter), Merge Two Sorted Lists [k](src/main/kotlin/sortedList), Move Zeroes [j](src/main/java/movezeros), Rotate Linked List [j](src/main/java/rotatelinkedlist), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray)
 
 <!-- END INDEX -->

@@ -1,6 +1,8 @@
 package discountcode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 class Result1 {
@@ -13,78 +15,43 @@ class Result1 {
      */
 
     public static List<Integer> findValidDiscountCoupons(List<String> discounts) {
-        // Write your code here
         List<Integer> response = new ArrayList<>();
-        System.out.println(discounts);
-        for (String code: discounts){
-            if(code.isBlank() || code.length() == 1){
-                response.add(1);
-            }else if(isPalindrome(code)){
-                response.add(1);
-            } else{
-                checkIfXAddedOnBothEnds(code);
-            }
-
+        for (String code : discounts) {
+            response.add(isValidCoupon(code) ? 1 : 0);
         }
         return response;
     }
 
-    public static Boolean isPalindrome(String value){
-        int i = 0;
-        int j = value.length() - 1;
-
-        while (i < j){
-            if(value.charAt(i) != value.charAt(j)){
-                return false;
-            }
-            i++;
-            j--;
-        }
-        return true;
-    }
-
-    public static Boolean checkIfXAddedOnBothEnds(String value){
-        int i=0, j = value.length() - 1;
-
-        if(j < 2){
+    /**
+     * A coupon is valid when it is empty, or a valid coupon wrapped in a matching pair of
+     * characters, or two valid coupons side by side.
+     *
+     * <p>Every such coupon collapses to nothing if adjacent equal characters are deleted
+     * repeatedly, and only such coupons do, so one stack pass decides it: a character that
+     * equals the top cancels with it, anything else is pushed.
+     */
+    static boolean isValidCoupon(String code) {
+        if (code == null) {
             return false;
         }
-
-        if(j == 2){
-            return isPalindrome(value);
-        }
-
-        Boolean firstMatch = false;
-
-        while (i < j){
-            if(value.charAt(i) != value.charAt(j)){
-                break;
+        Deque<Character> stack = new ArrayDeque<>();
+        for (int i = 0; i < code.length(); i++) {
+            char c = code.charAt(i);
+            if (!stack.isEmpty() && stack.peek() == c) {
+                stack.pop();
+            } else {
+                stack.push(c);
             }
-            firstMatch = true;
-            i++;j--;
         }
-
-        if(!firstMatch){
-            return false;
-        }
-
-        String firstPiece = value.substring(i, (j/i-1));
-        String secondPiece = value.substring((j/i)-1, j+1);
-
-        System.out.println(firstPiece);
-        System.out.println(secondPiece);
-        return isPalindrome(firstPiece) && isPalindrome(secondPiece);
+        return stack.isEmpty();
     }
 }
 
 public class DiscountCode {
-    static void main(String[] args){
-        List<String> codes =new ArrayList<>();
-        codes.add("daabbd");
-        codes.add("abc");
+    static void main(String[] args) {
+        List<String> codes = List.of("daabbd", "abc", "aabb", "abab");
 
-        List<Integer> result = Result1.findValidDiscountCoupons(codes);
-
-        System.out.println(result);
+        System.out.println(codes);
+        System.out.println(Result1.findValidDiscountCoupons(codes)); // [1, 0, 1, 0]
     }
 }

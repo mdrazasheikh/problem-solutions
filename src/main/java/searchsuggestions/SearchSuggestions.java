@@ -1,9 +1,8 @@
 package searchsuggestions;
 
-import java.util.*;
-
-import static java.util.stream.Collectors.joining;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 class SearchSuggestions {
 
@@ -16,33 +15,41 @@ class SearchSuggestions {
      *  2. STRING customerQuery
      */
 
+    private static final int MAX_SUGGESTIONS = 3;
+    private static final int MIN_PREFIX_LENGTH = 2;
+
     public static List<List<String>> searchSuggestions(List<String> repository, String customerQuery) {
-        // Write your code here
         List<List<String>> keywordSuggestions = new ArrayList<>();
-        System.out.println(repository);
-        for(int i=2; i<= customerQuery.length(); i++){
-            List<String> suggestions = new ArrayList<>();
-            String subString = customerQuery.substring(0, i) + "\\w*";
-//            System.out.println(subString);
-            for (String temp:repository){
-                if(temp.matches(subString)){
-//                    System.out.println(temp);
-                    suggestions.add(temp);
+        if (repository == null || customerQuery == null) {
+            return keywordSuggestions;
+        }
+
+        // Sorting once up front means each prefix can stop at the first three matches and
+        // still return the lexicographically smallest three.
+        List<String> sorted = new ArrayList<>(repository);
+        Collections.sort(sorted);
+
+        for (int length = MIN_PREFIX_LENGTH; length <= customerQuery.length(); length++) {
+            String prefix = customerQuery.substring(0, length);
+            List<String> suggestions = new ArrayList<>(MAX_SUGGESTIONS);
+
+            for (String entry : sorted) {
+                if (entry.startsWith(prefix)) {
+                    suggestions.add(entry);
+                    if (suggestions.size() == MAX_SUGGESTIONS) {
+                        break;
+                    }
                 }
             }
             keywordSuggestions.add(suggestions);
         }
-        System.out.println(keywordSuggestions);
         return keywordSuggestions;
     }
 
-    public static void main(String[] args){
-        List<String> repo = new ArrayList<>();
-        repo.add("bags");
-        repo.add("baggage");
-        repo.add("banner");
-        repo.add("box");
-        repo.add("cloth");
-        searchSuggestions(repo, "bag");
+    public static void main(String[] args) {
+        List<String> repo = List.of("bags", "baggage", "banner", "box", "cloth");
+
+        System.out.println(searchSuggestions(repo, "bag"));
+        // [[baggage, bags, banner], [baggage, bags]]
     }
 }

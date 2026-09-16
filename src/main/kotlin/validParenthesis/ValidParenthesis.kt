@@ -1,21 +1,27 @@
 package validparenthesis
 
+// #### Valid Parentheses:
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
+// determine if the input string is valid.
+
+private val CLOSING_TO_OPENING = mapOf(')' to '(', '}' to '{', ']' to '[')
+
 fun isValidString(s: String): Boolean {
-    val stack = mutableListOf<Char>()
-    val map = mapOf(')' to '(', '}' to '}', ']' to ']')
+    val stack = ArrayDeque<Char>()
 
     for (char in s) {
-        if (char in map.values) {
-            stack.add(char)
-        } else if (char in map.keys) {
-            if (stack.isEmpty() || stack.removeAt(stack.size - 1) != map[char]) {
-                return false
-            }
+        when (char) {
+            in CLOSING_TO_OPENING.values -> stack.addLast(char)
+            in CLOSING_TO_OPENING.keys ->
+                if (stack.removeLastOrNull() != CLOSING_TO_OPENING[char]) return false
         }
     }
+
     return stack.isEmpty()
 }
 
 fun main() {
-    println(isValidString("[]()"))
+    println(isValidString("[]()"))   // true
+    println(isValidString("{[()]}")) // true
+    println(isValidString("([)]"))   // false
 }
