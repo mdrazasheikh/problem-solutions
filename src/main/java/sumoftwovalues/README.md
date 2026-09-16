@@ -1,3 +1,12 @@
+---
+title: Two Sum — Exists
+slug: two-sum-exists
+tags: [hashset, array]
+aliases: [does an array contain two values summing to a target, pair with target sum]
+time: O(n)
+space: O(n)
+---
+
 # Sum Of Two Values
 
 Checks whether an array contains two values whose sum equals a target.

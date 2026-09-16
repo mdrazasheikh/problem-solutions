@@ -1,3 +1,12 @@
+---
+title: Two Sum
+slug: two-sum
+tags: [hashmap, array]
+aliases: [two indices that add to a target, leetcode 1]
+time: O(n)
+space: O(n)
+---
+
 # Two Sum
 
 Returns indices of two values whose sum equals the target.

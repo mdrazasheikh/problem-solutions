@@ -1,3 +1,12 @@
+---
+title: Multiply Without the Operator
+slug: multiply-without-operator
+tags: [recursion, math]
+aliases: [multiply two integers without multiplication, repeated addition]
+time: O(|y|)
+space: O(|y|)
+---
+
 # Multiply
 
 Multiplies two integers without using the multiplication operator.

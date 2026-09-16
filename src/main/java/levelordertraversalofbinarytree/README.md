@@ -1,7 +1,21 @@
+---
+title: Level Order Traversal
+slug: level-order-traversal
+status: stub
+tags: [bfs, binary-tree, queue]
+aliases: [breadth first tree traversal, print tree by levels]
+time: O(n)
+space: O(w)
+---
+
 # Level Order Traversal
 
-Traverses a binary tree breadth-first and visits nodes level by level.
+**Stub — not implemented yet.** The class holds a list of values and a commented-out
+`main`; there is no traversal code.
 
-Approach: process nodes with a queue.
+Intended approach: seed a queue with the root, then repeatedly drain one level's worth of
+nodes, emitting their values and enqueuing their children.
 
-Complexity: O(n) time and O(w) space, where w is the maximum tree width.
+Intended complexity: O(n) time and O(w) space, where w is the maximum tree width.
+
+See [Graph Valid Tree](../graphtree) for a working BFS in this repo.

@@ -1,3 +1,12 @@
+---
+title: Longest Ideal Subsequence
+slug: longest-ideal-subsequence
+tags: [dynamic-programming, string, alphabet]
+aliases: [leetcode 2370, adjacent letters within k]
+time: O(n)
+space: O(1)
+---
+
 ## 2370. Longest Ideal Subsequence
 
 You are given a string s consisting of lowercase letters and an integer k. We call a string t ideal if the following conditions are satisfied:

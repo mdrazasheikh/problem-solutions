@@ -1,3 +1,12 @@
+---
+title: Average Waiting Time
+slug: average-waiting-time
+tags: [simulation, greedy, array]
+aliases: [leetcode 1701, single chef restaurant queue]
+time: O(n)
+space: O(1)
+---
+
 ## 1701. Average Waiting Time
 
 There is a restaurant with a single chef. You are given an array customers, where customers[i] = [arrivali, timei]:

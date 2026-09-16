@@ -1,3 +1,12 @@
+---
+title: Reverse Number
+slug: reverse-number
+tags: [math, digits]
+aliases: [print digits in reverse, reverse an integer]
+time: O(d)
+space: O(1)
+---
+
 # Reverse Number
 
 Prints the digits of an integer in reverse order while handling trailing zeroes.

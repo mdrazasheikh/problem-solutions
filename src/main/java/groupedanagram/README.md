@@ -1,3 +1,12 @@
+---
+title: Group Anagrams
+slug: group-anagrams
+tags: [hashmap, sorting, string]
+aliases: [group words with the same letters, anagram buckets]
+time: O(w * k log k)
+space: O(w * k)
+---
+
 # Grouped Anagram
 
 Groups words that contain the same letters with the same frequencies.

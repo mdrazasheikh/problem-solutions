@@ -1,3 +1,12 @@
+---
+title: Squares of a Sorted Array
+slug: squares-of-sorted-array
+tags: [two-pointer, array, sorting]
+aliases: [leetcode 977, sorted squares]
+time: O(n)
+space: O(n)
+---
+
 ## 977. Squares of a Sorted Array
 
 Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.

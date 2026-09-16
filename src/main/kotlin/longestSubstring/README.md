@@ -1,3 +1,12 @@
+---
+title: Longest Substring Without Repeating Characters
+slug: longest-substring-without-repeating-characters
+tags: [sliding-window, hashmap, string, two-pointer]
+aliases: [longest unique substring, no repeating characters]
+time: O(n)
+space: O(k)
+---
+
 # Longest Substring
 
 Finds the length of the longest substring without repeated characters.

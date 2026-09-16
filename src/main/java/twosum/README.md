@@ -1,3 +1,12 @@
+---
+title: Two Sum
+slug: two-sum
+tags: [hashmap, array]
+aliases: [two indices that add to a target, complement lookup]
+time: O(n)
+space: O(n)
+---
+
 # Two Sum
 
 Finds two indices whose values add to a target.

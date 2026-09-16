@@ -1,3 +1,12 @@
+---
+title: Contains Duplicate
+slug: contains-duplicate
+tags: [hashset, array]
+aliases: [array has a repeated value, duplicate number, detect duplicates]
+time: O(n)
+space: O(n)
+---
+
 # Duplicate Number
 
 Checks whether an integer array contains a repeated value.

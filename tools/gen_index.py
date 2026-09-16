@@ -1,0 +1,230 @@
+#!/usr/bin/env python3
+"""Generate the solution index in the root README from per-solution frontmatter.
+
+Every solution README may start with a YAML-ish frontmatter block:
+
+    ---
+    title: Longest Substring Without Repeating Characters
+    slug: longest-substring-without-repeating-characters
+    tags: [sliding-window, hashmap, string]
+    aliases: [longest unique substring]
+    time: O(n)
+    space: O(k)
+    ---
+
+Solutions that share a slug are the same problem in different languages and
+collapse into a single row with one link per language.
+
+Usage: python3 tools/gen_index.py [--check]
+"""
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+LANG_ROOTS = {"Java": "src/main/java", "Kotlin": "src/main/kotlin"}
+LANG_ORDER = ["Java", "Kotlin"]
+BEGIN = "<!-- BEGIN INDEX -->"
+END = "<!-- END INDEX -->"
+LIST_KEYS = {"tags", "aliases", "related"}
+NONE = "—"
+STATUS_MARK = "⚠️"
+
+FRONTMATTER = re.compile(r"\A---\r?\n(.*?)\r?\n---\r?\n?", re.DOTALL)
+
+
+class IndexError_(Exception):
+    pass
+
+
+def parse_frontmatter(text):
+    """Return the frontmatter dict, or None when the file has no frontmatter."""
+    match = FRONTMATTER.match(text)
+    if not match:
+        return None
+    data = {}
+    for line in match.group(1).splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if ":" not in line:
+            raise IndexError_(f"frontmatter line is not 'key: value': {line!r}")
+        key, _, value = line.partition(":")
+        key, value = key.strip(), value.strip()
+        if key in LIST_KEYS:
+            data[key] = split_list(value)
+        else:
+            data[key] = value
+    return data
+
+
+def split_list(value):
+    value = value.strip()
+    if value.startswith("[") and value.endswith("]"):
+        value = value[1:-1]
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
+def collect(repo_root):
+    """Read every solution README and group the entries by slug."""
+    problems = {}
+    for lang, root in LANG_ROOTS.items():
+        base = repo_root / root
+        if not base.is_dir():
+            continue
+        for readme in sorted(base.rglob("README.md")):
+            meta = parse_frontmatter(readme.read_text(encoding="utf-8"))
+            if meta is None:
+                continue
+            slug = meta.get("slug")
+            if not slug:
+                raise IndexError_(f"{readme}: frontmatter has no 'slug'")
+            if not meta.get("title"):
+                raise IndexError_(f"{readme}: frontmatter has no 'title'")
+            entry = problems.setdefault(
+                slug,
+                {"title": meta["title"], "tags": [], "aliases": [], "links": {},
+             "status": ""},
+            )
+            if lang in entry["links"]:
+                raise IndexError_(f"{slug}: two {lang} directories claim this slug")
+            entry["links"][lang] = readme.parent.relative_to(repo_root).as_posix()
+            entry["status"] = meta.get("status", entry.get("status", ""))
+            entry["time"] = meta.get("time", NONE)
+            entry["space"] = meta.get("space", NONE)
+            merge(entry["tags"], meta.get("tags", []))
+            merge(entry["aliases"], meta.get("aliases", []))
+    return problems
+
+
+def merge(target, values):
+    for value in values:
+        if value not in target:
+            target.append(value)
+
+
+def render_table(problems):
+    lines = [
+        "| Problem | Tags | Time | Space | Java | Kotlin |",
+        "|---|---|---|---|---|---|",
+    ]
+    for slug in sorted(problems, key=lambda s: problems[s]["title"].lower()):
+        entry = problems[slug]
+        name = entry["title"]
+        if entry.get("status"):
+            name += f" {STATUS_MARK} _{entry['status']}_"
+        if entry["aliases"]:
+            name += "<br><sub>aka " + ", ".join(entry["aliases"]) + "</sub>"
+        cells = [
+            name,
+            ", ".join(f"`{tag}`" for tag in sorted(entry["tags"])) or NONE,
+            f"`{entry['time']}`",
+            f"`{entry['space']}`",
+        ]
+        cells += [link_cell(entry["links"].get(lang)) for lang in LANG_ORDER]
+        lines.append("| " + " | ".join(cells) + " |")
+    return "\n".join(lines)
+
+
+def link_cell(path):
+    return f"[src]({path})" if path else NONE
+
+
+def render_tag_index(problems):
+    by_tag = {}
+    for entry in problems.values():
+        for tag in entry["tags"]:
+            by_tag.setdefault(tag, []).append(entry)
+    lines = []
+    for tag in sorted(by_tag):
+        entries = sorted(by_tag[tag], key=lambda e: e["title"].lower())
+        links = ", ".join(tag_links(entry) for entry in entries)
+        lines.append(f"- **`{tag}`** — {links}")
+    return "\n".join(lines)
+
+
+def tag_links(entry):
+    parts = []
+    for lang in LANG_ORDER:
+        path = entry["links"].get(lang)
+        if path:
+            parts.append(f"[{lang[0].lower()}]({path})")
+    return f"{entry['title']} {' '.join(parts)}"
+
+
+def render(problems):
+    java = sum(1 for e in problems.values() if "Java" in e["links"])
+    kotlin = sum(1 for e in problems.values() if "Kotlin" in e["links"])
+    both = sum(1 for e in problems.values() if len(e["links"]) == 2)
+    return "\n".join(
+        [
+            BEGIN,
+            "",
+            f"**{len(problems)} problems** — {java} in Java, {kotlin} in Kotlin, "
+            f"{both} solved in both.",
+            "",
+            "## All solutions",
+            "",
+            render_table(problems),
+            "",
+            "## By technique",
+            "",
+            render_tag_index(problems),
+            "",
+            END,
+        ]
+    )
+
+
+def splice(readme_text, block):
+    start = readme_text.find(BEGIN)
+    end = readme_text.find(END)
+    if start == -1 or end == -1:
+        raise IndexError_(
+            f"root README.md is missing the {BEGIN} / {END} markers"
+        )
+    if end < start:
+        raise IndexError_(f"{END} appears before {BEGIN} in the root README.md")
+    return readme_text[:start] + block + readme_text[end + len(END):]
+
+
+def build(repo_root):
+    readme = repo_root / "README.md"
+    return splice(readme.read_text(encoding="utf-8"), render(collect(repo_root)))
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="exit non-zero if the index is stale instead of rewriting it",
+    )
+    parser.add_argument(
+        "--repo-root",
+        type=Path,
+        default=Path(__file__).resolve().parent.parent,
+    )
+    args = parser.parse_args(argv)
+
+    readme = args.repo_root / "README.md"
+    try:
+        updated = build(args.repo_root)
+    except IndexError_ as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+
+    if updated == readme.read_text(encoding="utf-8"):
+        print("index is up to date")
+        return 0
+    if args.check:
+        print("index is stale: run python3 tools/gen_index.py", file=sys.stderr)
+        return 1
+    readme.write_text(updated, encoding="utf-8")
+    print(f"wrote index to {readme}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

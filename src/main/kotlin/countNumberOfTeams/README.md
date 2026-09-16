@@ -1,3 +1,12 @@
+---
+title: Count Number of Teams
+slug: count-number-of-teams
+tags: [array, counting, brute-force]
+aliases: [leetcode 1395, increasing or decreasing triplets]
+time: O(n^2)
+space: O(1)
+---
+
 ## 1395. Count Number of Teams
 
 There are n soldiers standing in a line. Each soldier is assigned a unique rating value.

@@ -1,3 +1,12 @@
+---
+title: Valid Parentheses
+slug: valid-parentheses
+tags: [stack, string]
+aliases: [balanced brackets, matching parentheses]
+time: O(n)
+space: O(n)
+---
+
 # Valid Parentheses
 
 Checks whether an expression's brackets are correctly balanced and nested.

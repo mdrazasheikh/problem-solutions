@@ -1,3 +1,12 @@
+---
+title: Add Two Numbers
+slug: add-two-numbers
+tags: [linked-list, math, carry]
+aliases: [sum two numbers stored as linked lists, leetcode 2]
+time: O(max(m, n))
+space: O(1)
+---
+
 # Add Two Numbers
 
 Adds two non-negative integers represented by reverse-order linked lists.

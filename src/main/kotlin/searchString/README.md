@@ -1,3 +1,12 @@
+---
+title: Design Search Autocomplete
+slug: design-search-autocomplete
+tags: [trie, string, autocomplete, design, prefix]
+aliases: [leetcode 642, autocomplete system, trie suggestions]
+time: O(p + r)
+space: O(n)
+---
+
 # Search String
 
 Provides autocomplete suggestions for a search string using a trie of stored sentences.

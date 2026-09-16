@@ -1,3 +1,12 @@
+---
+title: Quick Sort
+slug: quick-sort
+tags: [sorting, divide-and-conquer, partition, recursion]
+aliases: [pivot partition sort]
+time: O(n log n) avg
+space: O(log n) avg
+---
+
 # Quick Sort
 
 Sorts an integer array using partitioning around a pivot.

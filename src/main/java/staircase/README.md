@@ -1,3 +1,12 @@
+---
+title: Climbing Stairs
+slug: climbing-stairs
+tags: [dynamic-programming, recursion, memoization]
+aliases: [staircase ways, count step combinations]
+time: O(n)
+space: O(n)
+---
+
 # Staircase
 
 Counts the ways to reach a staircase using the supported step sizes.

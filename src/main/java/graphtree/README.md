@@ -1,3 +1,12 @@
+---
+title: Graph Valid Tree
+slug: graph-valid-tree
+tags: [bfs, graph, adjacency-list, queue, connected-components]
+aliases: [is this graph a tree, connected and acyclic, detect cycle undirected]
+time: O(n + e)
+space: O(n + e)
+---
+
 # Graph Tree
 
 Determines whether an undirected graph is a connected acyclic tree.

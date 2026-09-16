@@ -1,3 +1,12 @@
+---
+title: Search Suggestions System
+slug: search-suggestions-system
+tags: [string, prefix, autocomplete]
+aliases: [suggestions per growing prefix, typeahead over a list]
+time: O(p * r)
+space: O(p)
+---
+
 # Search Suggestions
 
 Returns repository suggestions for each growing prefix of a customer query.

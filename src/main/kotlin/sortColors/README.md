@@ -1,3 +1,12 @@
+---
+title: Sort Colors
+slug: sort-colors
+tags: [two-pointer, array, dutch-national-flag, in-place, sorting]
+aliases: [dutch national flag, sort zeros ones twos, leetcode 75]
+time: O(n)
+space: O(1)
+---
+
 # Sort Colors
 
 Sorts an array containing red, white, and blue values in-place.

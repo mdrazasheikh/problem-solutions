@@ -1,3 +1,10 @@
+---
+title: Kotlin Basics
+slug: kotlin-basics
+tags: [playground, collections, language-basics]
+aliases: [kotlin syntax notes, collections and loops]
+---
+
 # Kotlin Basics
 
 Small Kotlin language experiments covering collections, arrays, sets, maps, and loops.

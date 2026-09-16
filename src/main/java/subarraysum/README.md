@@ -1,3 +1,12 @@
+---
+title: Subarray Sum Equals K
+slug: subarray-sum-equals-k
+tags: [prefix-sum, hashmap, array]
+aliases: [count contiguous subarrays with a target sum]
+time: O(n)
+space: O(n)
+---
+
 # Subarray Sum
 
 Counts contiguous subarrays whose values sum to a target.

@@ -32,3 +32,7 @@ out/
 # Gradle
 .gradle/
 build/
+
+# Python
+__pycache__/
+*.pyc
