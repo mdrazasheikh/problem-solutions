@@ -82,10 +82,12 @@ def collect(repo_root):
                 raise IndexError_(f"{readme}: frontmatter has no 'slug'")
             if not meta.get("title"):
                 raise IndexError_(f"{readme}: frontmatter has no 'title'")
+            if not meta.get("pattern"):
+                raise IndexError_(f"{readme}: frontmatter has no 'pattern'")
             entry = problems.setdefault(
                 slug,
-                {"title": meta["title"], "tags": [], "aliases": [], "links": {},
-             "status": ""},
+                {"title": meta["title"], "pattern": meta["pattern"], "tags": [],
+             "aliases": [], "links": {}, "status": ""},
             )
             if lang in entry["links"]:
                 raise IndexError_(f"{slug}: two {lang} directories claim this slug")
@@ -106,8 +108,8 @@ def merge(target, values):
 
 def render_table(problems):
     lines = [
-        "| Problem | Tags | Time | Space | Java | Kotlin |",
-        "|---|---|---|---|---|---|",
+        "| Problem | Pattern | Tags | Time | Space | Java | Kotlin |",
+        "|---|---|---|---|---|---|---|",
     ]
     for slug in sorted(problems, key=lambda s: problems[s]["title"].lower()):
         entry = problems[slug]
@@ -118,6 +120,7 @@ def render_table(problems):
             name += "<br><sub>aka " + ", ".join(entry["aliases"]) + "</sub>"
         cells = [
             name,
+            f"`{entry['pattern']}`",
             ", ".join(f"`{tag}`" for tag in sorted(entry["tags"])) or NONE,
             f"`{entry['time']}`",
             f"`{entry['space']}`",
@@ -129,6 +132,26 @@ def render_table(problems):
 
 def link_cell(path):
     return f"[src]({path})" if path else NONE
+
+
+def render_pattern_index(problems):
+    """Group problems by the bucket they physically live in.
+
+    Buckets are ordered by name rather than by size so that adding a problem does not
+    reshuffle the generated sections and churn the diff.
+    """
+    by_pattern = {}
+    for entry in problems.values():
+        by_pattern.setdefault(entry["pattern"], []).append(entry)
+    lines = []
+    for pattern in sorted(by_pattern):
+        entries = sorted(by_pattern[pattern], key=lambda e: e["title"].lower())
+        lines.append(f"### {pattern} ({len(entries)})")
+        lines.append("")
+        for entry in entries:
+            lines.append(f"- {tag_links(entry)}")
+        lines.append("")
+    return "\n".join(lines).rstrip()
 
 
 def render_tag_index(problems):
@@ -167,6 +190,14 @@ def render(problems):
             "## All solutions",
             "",
             render_table(problems),
+            "",
+            "## By pattern",
+            "",
+            "Each problem lives in the directory named here. A problem usually uses more"
+            " than one technique, so the pattern is the primary one; see [By"
+            " technique](#by-technique) for every technique it touches.",
+            "",
+            render_pattern_index(problems),
             "",
             "## By technique",
             "",

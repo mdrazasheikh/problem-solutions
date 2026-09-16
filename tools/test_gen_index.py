@@ -13,8 +13,11 @@ def write(path, text):
     path.write_text(text, encoding="utf-8")
 
 
-def frontmatter(title, slug, tags="", aliases="", time="O(n)", space="O(1)", status=""):
+def frontmatter(title, slug, tags="", aliases="", time="O(n)", space="O(1)", status="",
+                pattern="arrays"):
     lines = [f"title: {title}", f"slug: {slug}"]
+    if pattern:
+        lines.append(f"pattern: {pattern}")
     if status:
         lines.append(f"status: {status}")
     if tags:
@@ -153,6 +156,38 @@ class Render(RepoFixture):
         self.solution("java", "b", title="JavaOnly", slug="java-only")
         block = gen_index.render(gen_index.collect(self.root))
         self.assertIn("**2 problems** — 2 in Java, 1 in Kotlin, 1 solved in both.", block)
+
+
+class Pattern(RepoFixture):
+    def test_pattern_column_shows_the_bucket(self):
+        self.solution("java", "slidingwindow/lss", title="LSS", slug="lss",
+                      pattern="sliding-window")
+        table = gen_index.render_table(gen_index.collect(self.root))
+        self.assertIn("`sliding-window`", table)
+
+    def test_pattern_index_groups_by_bucket(self):
+        self.solution("java", "stack/a", title="A", slug="a", pattern="stack")
+        self.solution("kotlin", "stack/b", title="B", slug="b", pattern="stack")
+        self.solution("java", "heap/c", title="C", slug="c", pattern="heap")
+        index = gen_index.render_pattern_index(gen_index.collect(self.root))
+        self.assertIn("### stack (2)", index)
+        self.assertIn("### heap (1)", index)
+        self.assertLess(index.index("### heap"), index.index("### stack"),
+                        "buckets are ordered by name so the diff stays stable")
+
+    def test_same_problem_in_both_languages_appears_once_per_pattern(self):
+        self.solution("java", "stack/validparenthesis", title="Valid Parentheses",
+                      slug="vp", pattern="stack")
+        self.solution("kotlin", "stack/validParenthesis", title="Valid Parentheses",
+                      slug="vp", pattern="stack")
+        index = gen_index.render_pattern_index(gen_index.collect(self.root))
+        self.assertEqual(1, index.count("Valid Parentheses"))
+
+    def test_missing_pattern_is_reported_with_the_file(self):
+        self.solution("java", "x", title="X", slug="x", pattern="")
+        with self.assertRaises(gen_index.IndexError_) as caught:
+            gen_index.collect(self.root)
+        self.assertIn("pattern", str(caught.exception))
 
 
 class Status(RepoFixture):
