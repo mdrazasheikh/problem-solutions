@@ -64,7 +64,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 
 <!-- BEGIN INDEX -->
 
-**54 problems** — 42 in Java, 15 in Kotlin, 3 solved in both.
+**55 problems** — 43 in Java, 15 in Kotlin, 3 solved in both.
 
 ## All solutions
 
@@ -116,6 +116,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Rotate Linked List<br><sub>aka rotate a list right by k, ring and break</sub> | `linked-list` | `cycle`, `linked-list`, `two-pointer` | `O(n)` | `O(1)` | [src](src/main/java/linkedlist/rotatelinkedlist) | — |
 | Search Suggestions System<br><sub>aka suggestions per growing prefix, typeahead over a list</sub> | `prefix-search` | `autocomplete`, `prefix`, `sorting`, `string` | `O(r log r + p * r * l)` | `O(r)` | [src](src/main/java/prefixsearch/searchsuggestions) | — |
 | Selection Sort<br><sub>aka repeatedly select the smallest</sub> | `sorting` | `in-place`, `sorting` | `O(n^2)` | `O(1)` | [src](src/main/java/sorting/selectionsort) | — |
+| Shortest Path in a Grid<br><sub>aka shortest path in binary matrix, grid bfs, maze shortest path, fewest steps through a grid</sub> | `bfs` | `bfs`, `graph`, `matrix`, `queue`, `shortest-path` | `O(m * n)` | `O(m * n)` | [src](src/main/java/bfs/shortestpath) | — |
 | Smallest Missing Positive Integer<br><sub>aka first missing positive, smallest positive not in array</sub> | `hashing` | `array`, `boolean-sieve`, `counting` | `O(n)` | `O(n)` | [src](src/main/java/hashing/smallestpositiveinteger) | — |
 | Sort Colors<br><sub>aka dutch national flag, sort zeros ones twos, leetcode 75</sub> | `two-pointers` | `array`, `dutch-national-flag`, `in-place`, `sorting`, `two-pointer` | `O(n)` | `O(1)` | — | [src](src/main/kotlin/twopointers/sortColors) |
 | Spiral Matrix<br><sub>aka spiral order traversal, clockwise matrix walk</sub> | `arrays` | `boundaries`, `matrix`, `simulation` | `O(mn)` | `O(1)` | [src](src/main/java/arrays/spiraltraversal) | — |
@@ -134,10 +135,11 @@ Each problem lives in the directory named here. A problem usually uses more than
 - Count Number of Teams [k](src/main/kotlin/arrays/countNumberOfTeams)
 - Spiral Matrix [j](src/main/java/arrays/spiraltraversal)
 
-### bfs (2)
+### bfs (3)
 
 - Graph Valid Tree [j](src/main/java/bfs/graphtree)
 - Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree)
+- Shortest Path in a Grid [j](src/main/java/bfs/shortestpath)
 
 ### binary-search (1)
 
@@ -248,7 +250,7 @@ Each problem lives in the directory named here. A problem usually uses more than
 - **`alphabet`** — Longest Ideal Subsequence [k](src/main/kotlin/dynamicprogramming/longestIdealSequence)
 - **`array`** — Average Waiting Time [k](src/main/kotlin/greedy/averageWaitingTime), Binary Search [j](src/main/java/binarysearch/binarysearch), Contains Duplicate [j](src/main/java/hashing/duplicatenumber), Contiguous Range Sum [k](src/main/kotlin/slidingwindow/subsetSum), Count Number of Teams [k](src/main/kotlin/arrays/countNumberOfTeams), House Robber [k](src/main/kotlin/dynamicprogramming/houseRobber), Longest Consecutive Sequence [j](src/main/java/hashing/longestconsecutivesequence), Longest Unique Subarray [j](src/main/java/slidingwindow/longestuniquesubarray), Missing Dice Rolls [j](src/main/java/greedy/dice), Missing Number [j](src/main/java/math/missingnumber), Move Zeroes [j](src/main/java/twopointers/movezeros), Smallest Missing Positive Integer [j](src/main/java/hashing/smallestpositiveinteger), Sort Colors [k](src/main/kotlin/twopointers/sortColors), Squares of a Sorted Array [k](src/main/kotlin/twopointers/squaresOfSortedArray), Subarray Sum Equals K [j](src/main/java/prefixsum/subarraysum), Two Sum [j](src/main/java/hashing/twosum) [k](src/main/kotlin/hashing/twoSums), Two Sum — Exists [j](src/main/java/hashing/sumoftwovalues)
 - **`autocomplete`** — Design Search Autocomplete [k](src/main/kotlin/prefixsearch/searchString), Search Suggestions System [j](src/main/java/prefixsearch/searchsuggestions)
-- **`bfs`** — Graph Valid Tree [j](src/main/java/bfs/graphtree), Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree)
+- **`bfs`** — Graph Valid Tree [j](src/main/java/bfs/graphtree), Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree), Shortest Path in a Grid [j](src/main/java/bfs/shortestpath)
 - **`binary-search`** — Binary Search [j](src/main/java/binarysearch/binarysearch)
 - **`binary-tree`** — Invert Binary Tree [j](src/main/java/trees/invertbinarytree), Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree)
 - **`boolean-sieve`** — Smallest Missing Positive Integer [j](src/main/java/hashing/smallestpositiveinteger)
@@ -274,7 +276,7 @@ Each problem lives in the directory named here. A problem usually uses more than
 - **`edit-distance`** — Levenshtein Distance [j](src/main/java/dynamicprogramming/levenshteindistance)
 - **`enum`** — Deck of Cards [j](src/main/java/design/deckofcards)
 - **`gauss-sum`** — Missing Number [j](src/main/java/math/missingnumber)
-- **`graph`** — Graph Valid Tree [j](src/main/java/bfs/graphtree)
+- **`graph`** — Graph Valid Tree [j](src/main/java/bfs/graphtree), Shortest Path in a Grid [j](src/main/java/bfs/shortestpath)
 - **`greedy`** — Average Waiting Time [k](src/main/kotlin/greedy/averageWaitingTime), Minimum Circular Alignment Cost [j](src/main/java/prefixsum/angle), Missing Dice Rolls [j](src/main/java/greedy/dice)
 - **`hashmap`** — Agent Assignment [j](src/main/java/heap/agentassignment), Conversation Insight [j](src/main/java/hashing/conversationinsight), Count of Balloon [j](src/main/java/hashing/countofballoon), First Unique Character [j](src/main/java/hashing/firstuniquechar), Group Anagrams [j](src/main/java/hashing/groupedanagram), Longest Substring Without Repeating Characters [j](src/main/java/slidingwindow/longestsubstring) [k](src/main/kotlin/slidingwindow/longestSubstring), Longest Unique Subarray [j](src/main/java/slidingwindow/longestuniquesubarray), LRU Cache [j](src/main/java/design/lrucache), Subarray Sum Equals K [j](src/main/java/prefixsum/subarraysum), Two Sum [j](src/main/java/hashing/twosum) [k](src/main/kotlin/hashing/twoSums)
 - **`hashset`** — Contains Duplicate [j](src/main/java/hashing/duplicatenumber), Longest Consecutive Sequence [j](src/main/java/hashing/longestconsecutivesequence), Longest Unique Subarray [j](src/main/java/slidingwindow/longestuniquesubarray), Two Sum — Exists [j](src/main/java/hashing/sumoftwovalues)
@@ -284,7 +286,7 @@ Each problem lives in the directory named here. A problem usually uses more than
 - **`language-basics`** — Kotlin Basics [k](src/main/kotlin/sandbox/kotlinBasics)
 - **`linked-list`** — Add Two Numbers [k](src/main/kotlin/linkedlist/addTwoNumbers), Maximum Twin Pair Sum [j](src/main/java/linkedlist/pagereadcounter), Merge Two Sorted Lists [k](src/main/kotlin/linkedlist/sortedList), Rotate Linked List [j](src/main/java/linkedlist/rotatelinkedlist)
 - **`math`** — Add Two Numbers [k](src/main/kotlin/linkedlist/addTwoNumbers), FizzBuzz [k](src/main/kotlin/math/fizzBuzz), Lucky Number [j](src/main/java/math/luckynumber), Missing Dice Rolls [j](src/main/java/greedy/dice), Missing Number [j](src/main/java/math/missingnumber), Multiply Without the Operator [j](src/main/java/math/multiply), Reverse Number [j](src/main/java/math/reverse)
-- **`matrix`** — Spiral Matrix [j](src/main/java/arrays/spiraltraversal)
+- **`matrix`** — Shortest Path in a Grid [j](src/main/java/bfs/shortestpath), Spiral Matrix [j](src/main/java/arrays/spiraltraversal)
 - **`median`** — Minimum Circular Alignment Cost [j](src/main/java/prefixsum/angle)
 - **`memoization`** — Climbing Stairs [j](src/main/java/dynamicprogramming/staircase)
 - **`merge`** — Merge Two Sorted Lists [k](src/main/kotlin/linkedlist/sortedList)
@@ -299,11 +301,12 @@ Each problem lives in the directory named here. A problem usually uses more than
 - **`prefix-sum`** — Minimum Circular Alignment Cost [j](src/main/java/prefixsum/angle), Subarray Sum Equals K [j](src/main/java/prefixsum/subarraysum)
 - **`priority-queue`** — Agent Assignment [j](src/main/java/heap/agentassignment)
 - **`pub-sub`** — Event Dispatcher — Live Coding Review [j](src/main/java/design/db/livecoding)
-- **`queue`** — Graph Valid Tree [j](src/main/java/bfs/graphtree), Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree)
+- **`queue`** — Graph Valid Tree [j](src/main/java/bfs/graphtree), Level Order Traversal [j](src/main/java/bfs/levelordertraversalofbinarytree), Shortest Path in a Grid [j](src/main/java/bfs/shortestpath)
 - **`rate-limiting`** — Rate Limiter — Sliding Window [j](src/main/java/design/ratechecker)
 - **`recursion`** — Climbing Stairs [j](src/main/java/dynamicprogramming/staircase), Invert Binary Tree [j](src/main/java/trees/invertbinarytree), Lucky Number [j](src/main/java/math/luckynumber), Merge Sort [j](src/main/java/sorting/mergesort), Multiply Without the Operator [j](src/main/java/math/multiply), Quick Sort [j](src/main/java/sorting/quicksort)
 - **`reduction`** — Discount Code [j](src/main/java/stack/discountcode)
 - **`regex`** — Fresh Promo Code [j](src/main/java/strings/freshpromocode)
+- **`shortest-path`** — Shortest Path in a Grid [j](src/main/java/bfs/shortestpath)
 - **`simulation`** — Agent Assignment [j](src/main/java/heap/agentassignment), Average Waiting Time [k](src/main/kotlin/greedy/averageWaitingTime), FizzBuzz [k](src/main/kotlin/math/fizzBuzz), Spiral Matrix [j](src/main/java/arrays/spiraltraversal)
 - **`singleton`** — Event Dispatcher — Live Coding Review [j](src/main/java/design/db/livecoding)
 - **`sliding-window`** — Contiguous Range Sum [k](src/main/kotlin/slidingwindow/subsetSum), Longest Substring Without Repeating Characters [j](src/main/java/slidingwindow/longestsubstring) [k](src/main/kotlin/slidingwindow/longestSubstring), Longest Unique Subarray [j](src/main/java/slidingwindow/longestuniquesubarray), Rate Limiter — Sliding Window [j](src/main/java/design/ratechecker)
