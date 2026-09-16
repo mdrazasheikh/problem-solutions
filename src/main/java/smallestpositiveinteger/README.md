@@ -1,16 +1,20 @@
 ---
 title: Smallest Missing Positive Integer
 slug: smallest-missing-positive
-tags: [array, brute-force]
+tags: [array, counting, boolean-sieve]
 aliases: [first missing positive, smallest positive not in array]
-time: O(n^2)
-space: O(1)
+time: O(n)
+space: O(n)
 ---
 
 # Smallest Positive Integer
 
 Finds the smallest positive integer missing from an array.
 
-Approach: scan the range of possible answers and test membership.
+Approach: the answer can only lie in 1..n+1, so mark every in-range value in a
+`boolean[n + 2]` and return the first index left unmarked.
 
-Complexity: O(n^2) time in the current implementation and O(1) auxiliary space.
+Complexity: O(n) time and O(n) space for the marker array.
+
+Note: the values themselves can be used as the markers, by swapping each value to its own
+index, which reaches O(1) auxiliary space at the cost of mutating the input.

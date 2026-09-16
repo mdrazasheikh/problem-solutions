@@ -11,4 +11,7 @@ space: O(n)
 
 Models cards, suits, faces, and deck creation using Java enums and collections.
 
-Complexity: deck creation is O(n) time and O(n) space for n cards.
+Approach: `Face` and `Suit` are enums carrying an explicit rank and order, and the deck is
+built by taking the product of the two, wrapped in a `List` and shuffled.
+
+Complexity: deck creation is O(n) time, including the shuffle, and O(n) space for n cards.

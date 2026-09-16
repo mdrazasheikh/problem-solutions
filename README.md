@@ -57,20 +57,20 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Binary Search<br><sub>aka search a sorted array, find target index</sub> | `array`, `binary-search`, `sorted-array` | `O(log n)` | `O(1)` | [src](src/main/java/binarysearch) | — |
 | Climbing Stairs<br><sub>aka staircase ways, count step combinations</sub> | `dynamic-programming`, `memoization`, `recursion` | `O(n)` | `O(n)` | [src](src/main/java/staircase) | — |
 | Contains Duplicate<br><sub>aka array has a repeated value, duplicate number, detect duplicates</sub> | `array`, `hashset` | `O(n)` | `O(n)` | [src](src/main/java/duplicatenumber) | — |
-| Contiguous Range Sum<br><sub>aka subset sum, find a range that adds to a target</sub> | `array`, `sliding-window`, `two-pointer` | `O(n)` | `O(k)` | — | [src](src/main/kotlin/subsetSum) |
+| Contiguous Range Sum<br><sub>aka subset sum, find a range that adds to a target</sub> | `array`, `sliding-window`, `two-pointer` | `O(n)` | `O(1)` | — | [src](src/main/kotlin/subsetSum) |
 | Conversation Insight<br><sub>aka message counts by author, average user message length</sub> | `aggregation`, `hashmap`, `one-pass`, `string` | `O(m)` | `O(a)` | [src](src/main/java/conversationinsight) | — |
 | Count Number of Teams<br><sub>aka leetcode 1395, increasing or decreasing triplets</sub> | `array`, `brute-force`, `counting` | `O(n^2)` | `O(1)` | — | [src](src/main/kotlin/countNumberOfTeams) |
 | Count of Balloon<br><sub>aka maximum number of balloons, form word from letters</sub> | `counting`, `hashmap`, `string` | `O(n)` | `O(1)` | [src](src/main/java/countofballoon) | — |
 | Deck of Cards<br><sub>aka model a card deck, suits and faces</sub> | `collections`, `design`, `enum`, `oop` | `O(n)` | `O(n)` | [src](src/main/java/deckofcards) | — |
-| Design Search Autocomplete<br><sub>aka leetcode 642, autocomplete system, trie suggestions</sub> | `autocomplete`, `design`, `prefix`, `string`, `trie` | `O(p + r)` | `O(n)` | — | [src](src/main/kotlin/searchString) |
+| Design Search Autocomplete<br><sub>aka leetcode 642, autocomplete system, trie suggestions</sub> | `autocomplete`, `design`, `prefix`, `string`, `trie` | `O(p + r)` | `O(n * l)` | — | [src](src/main/kotlin/searchString) |
 | Discount Code<br><sub>aka palindrome after insertion, valid discount string</sub> | `palindrome`, `string`, `two-pointer` | `O(n)` | `O(n)` | [src](src/main/java/discountcode) | — |
 | Event Dispatcher — Live Coding Review<br><sub>aka publish subscribe, double checked locking, lapsed listener, find the bugs</sub> | `code-review`, `concurrency`, `design`, `observer`, `pub-sub`, `singleton`, `thread-safety` | `—` | `—` | [src](src/main/java/db/livecoding) | — |
-| First Unique Character<br><sub>aka first non repeating character</sub> | `counting`, `hashmap`, `string` | `O(n)` | `O(k)` | [src](src/main/java/firstuniquechar) | — |
+| First Unique Character<br><sub>aka first non repeating character</sub> | `counting`, `hashmap`, `string` | `O(n)` | `O(1)` | [src](src/main/java/firstuniquechar) | — |
 | FizzBuzz<br><sub>aka fizz buzz multiples of three and five</sub> | `math`, `simulation`, `string` | `O(n)` | `O(n)` | — | [src](src/main/kotlin/fizzBuzz) |
-| Fresh Promo Code<br><sub>aka contiguous group match in a cart, ordered group scan</sub> | `array`, `pattern-matching`, `sliding-window`, `string` | `O(c * g * s)` | `O(1)` | [src](src/main/java/freshpromocode) | — |
+| Fresh Promo Code<br><sub>aka contiguous group match in a cart, ordered group scan</sub> | `pattern-matching`, `regex`, `string` | `O(n) expected` | `O(n)` | [src](src/main/java/freshpromocode) | — |
 | Graph Valid Tree<br><sub>aka is this graph a tree, connected and acyclic, detect cycle undirected</sub> | `adjacency-list`, `bfs`, `connected-components`, `graph`, `queue` | `O(n + e)` | `O(n + e)` | [src](src/main/java/graphtree) | — |
 | Group Anagrams<br><sub>aka group words with the same letters, anagram buckets</sub> | `hashmap`, `sorting`, `string` | `O(w * k log k)` | `O(w * k)` | [src](src/main/java/groupedanagram) | — |
-| Heap Sort<br><sub>aka max heap sort, sift down</sub> | `heap`, `in-place`, `sorting` | `O(n log n)` | `O(1)` | [src](src/main/java/heapsort) | — |
+| Heap Sort<br><sub>aka max heap sort, sift down</sub> | `heap`, `in-place`, `sorting` | `O(n log n)` | `O(log n)` | [src](src/main/java/heapsort) | — |
 | House Robber<br><sub>aka leetcode 198, maximum sum of non adjacent values</sub> | `array`, `dynamic-programming` | `O(n)` | `O(1)` | — | [src](src/main/kotlin/houseRobber) |
 | Invert Binary Tree<br><sub>aka mirror a binary tree, swap left and right children</sub> | `binary-tree`, `dfs`, `recursion` | `O(n)` | `O(h)` | [src](src/main/java/invertbinarytree) | — |
 | Kotlin Basics<br><sub>aka kotlin syntax notes, collections and loops</sub> | `collections`, `language-basics`, `playground` | `—` | `—` | — | [src](src/main/kotlin/kotlinBasics) |
@@ -87,7 +87,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Merge Sort<br><sub>aka recursive merge sort</sub> | `divide-and-conquer`, `recursion`, `sorting` | `O(n log n)` | `O(n)` | [src](src/main/java/mergesort) | — |
 | Merge Two Sorted Lists<br><sub>aka merge two sorted linked lists, leetcode 21</sub> | `linked-list`, `merge`, `two-pointer` | `O(m + n)` | `O(1)` | — | [src](src/main/kotlin/sortedList) |
 | Minimum Circular Alignment Cost<br><sub>aka minimum travel cost on a circle, align points around 360 degrees</sub> | `circular-array`, `greedy`, `median`, `prefix-sum`, `sorting` | `O(n log n)` | `O(n)` | [src](src/main/java/angle) | — |
-| Missing Dice Rolls<br><sub>aka find missing rolls for a target mean, distribute remaining total</sub> | `array`, `greedy`, `math` | `O(n)` | `O(n)` | [src](src/main/java/dice) | — |
+| Missing Dice Rolls<br><sub>aka find missing rolls for a target mean, distribute remaining total</sub> | `array`, `greedy`, `math` | `O(n + f)` | `O(f)` | [src](src/main/java/dice) | — |
 | Missing Number<br><sub>aka find the missing value from 0 to n, sum difference</sub> | `array`, `gauss-sum`, `math` | `O(n)` | `O(1)` | [src](src/main/java/missingnumber) | — |
 | Move Zeroes<br><sub>aka move zeros to the end, stable partition</sub> | `array`, `in-place`, `two-pointer` | `O(n)` | `O(1)` | [src](src/main/java/movezeros) | — |
 | Multiply Without the Operator<br><sub>aka multiply two integers without multiplication, repeated addition</sub> | `math`, `recursion` | `O(|y|)` | `O(|y|)` | [src](src/main/java/multiply) | — |
@@ -95,9 +95,9 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 | Rate Limiter — Sliding Window<br><sub>aka request throttling, sliding window counter, too many requests</sub> | `deque`, `design`, `rate-limiting`, `sliding-window` | `O(1) amortised` | `O(w)` | [src](src/main/java/ratechecker) | — |
 | Reverse Number<br><sub>aka print digits in reverse, reverse an integer</sub> | `digits`, `math` | `O(d)` | `O(1)` | [src](src/main/java/reverse) | — |
 | Rotate Linked List<br><sub>aka rotate a list right by k, ring and break</sub> | `cycle`, `linked-list`, `two-pointer` | `O(n)` | `O(1)` | [src](src/main/java/rotatelinkedlist) | — |
-| Search Suggestions System<br><sub>aka suggestions per growing prefix, typeahead over a list</sub> | `autocomplete`, `prefix`, `string` | `O(p * r)` | `O(p)` | [src](src/main/java/searchsuggestions) | — |
+| Search Suggestions System<br><sub>aka suggestions per growing prefix, typeahead over a list</sub> | `autocomplete`, `prefix`, `regex`, `string` | `O(p * r * l)` | `O(p * r)` | [src](src/main/java/searchsuggestions) | — |
 | Selection Sort<br><sub>aka repeatedly select the smallest</sub> | `in-place`, `sorting` | `O(n^2)` | `O(1)` | [src](src/main/java/selectionsort) | — |
-| Smallest Missing Positive Integer<br><sub>aka first missing positive, smallest positive not in array</sub> | `array`, `brute-force` | `O(n^2)` | `O(1)` | [src](src/main/java/smallestpositiveinteger) | — |
+| Smallest Missing Positive Integer<br><sub>aka first missing positive, smallest positive not in array</sub> | `array`, `boolean-sieve`, `counting` | `O(n)` | `O(n)` | [src](src/main/java/smallestpositiveinteger) | — |
 | Sort Colors<br><sub>aka dutch national flag, sort zeros ones twos, leetcode 75</sub> | `array`, `dutch-national-flag`, `in-place`, `sorting`, `two-pointer` | `O(n)` | `O(1)` | — | [src](src/main/kotlin/sortColors) |
 | Spiral Matrix<br><sub>aka spiral order traversal, clockwise matrix walk</sub> | `boundaries`, `matrix`, `simulation` | `O(mn)` | `O(1)` | [src](src/main/java/spiraltraversal) | — |
 | Squares of a Sorted Array<br><sub>aka leetcode 977, sorted squares</sub> | `array`, `sorting`, `two-pointer` | `O(n)` | `O(n)` | — | [src](src/main/kotlin/squaresOfSortedArray) |
@@ -112,13 +112,14 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 - **`adjacency-list`** — Graph Valid Tree [j](src/main/java/graphtree)
 - **`aggregation`** — Conversation Insight [j](src/main/java/conversationinsight)
 - **`alphabet`** — Longest Ideal Subsequence [k](src/main/kotlin/longestIdealSequence)
-- **`array`** — Average Waiting Time [k](src/main/kotlin/averageWaitingTime), Binary Search [j](src/main/java/binarysearch), Contains Duplicate [j](src/main/java/duplicatenumber), Contiguous Range Sum [k](src/main/kotlin/subsetSum), Count Number of Teams [k](src/main/kotlin/countNumberOfTeams), Fresh Promo Code [j](src/main/java/freshpromocode), House Robber [k](src/main/kotlin/houseRobber), Longest Consecutive Sequence [j](src/main/java/longestconsecutivesequence), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Missing Dice Rolls [j](src/main/java/dice), Missing Number [j](src/main/java/missingnumber), Move Zeroes [j](src/main/java/movezeros), Smallest Missing Positive Integer [j](src/main/java/smallestpositiveinteger), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray), Subarray Sum Equals K [j](src/main/java/subarraysum), Two Sum [j](src/main/java/twosum) [k](src/main/kotlin/twoSums), Two Sum — Exists [j](src/main/java/sumoftwovalues)
+- **`array`** — Average Waiting Time [k](src/main/kotlin/averageWaitingTime), Binary Search [j](src/main/java/binarysearch), Contains Duplicate [j](src/main/java/duplicatenumber), Contiguous Range Sum [k](src/main/kotlin/subsetSum), Count Number of Teams [k](src/main/kotlin/countNumberOfTeams), House Robber [k](src/main/kotlin/houseRobber), Longest Consecutive Sequence [j](src/main/java/longestconsecutivesequence), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Missing Dice Rolls [j](src/main/java/dice), Missing Number [j](src/main/java/missingnumber), Move Zeroes [j](src/main/java/movezeros), Smallest Missing Positive Integer [j](src/main/java/smallestpositiveinteger), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray), Subarray Sum Equals K [j](src/main/java/subarraysum), Two Sum [j](src/main/java/twosum) [k](src/main/kotlin/twoSums), Two Sum — Exists [j](src/main/java/sumoftwovalues)
 - **`autocomplete`** — Design Search Autocomplete [k](src/main/kotlin/searchString), Search Suggestions System [j](src/main/java/searchsuggestions)
 - **`bfs`** — Graph Valid Tree [j](src/main/java/graphtree), Level Order Traversal [j](src/main/java/levelordertraversalofbinarytree)
 - **`binary-search`** — Binary Search [j](src/main/java/binarysearch)
 - **`binary-tree`** — Invert Binary Tree [j](src/main/java/invertbinarytree), Level Order Traversal [j](src/main/java/levelordertraversalofbinarytree)
+- **`boolean-sieve`** — Smallest Missing Positive Integer [j](src/main/java/smallestpositiveinteger)
 - **`boundaries`** — Spiral Matrix [j](src/main/java/spiraltraversal)
-- **`brute-force`** — Count Number of Teams [k](src/main/kotlin/countNumberOfTeams), Smallest Missing Positive Integer [j](src/main/java/smallestpositiveinteger)
+- **`brute-force`** — Count Number of Teams [k](src/main/kotlin/countNumberOfTeams)
 - **`cache`** — LRU Cache [j](src/main/java/lrucache)
 - **`carry`** — Add Two Numbers [k](src/main/kotlin/addTwoNumbers)
 - **`circular-array`** — Minimum Circular Alignment Cost [j](src/main/java/angle)
@@ -126,7 +127,7 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 - **`collections`** — Deck of Cards [j](src/main/java/deckofcards), Kotlin Basics [k](src/main/kotlin/kotlinBasics)
 - **`concurrency`** — Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding)
 - **`connected-components`** — Graph Valid Tree [j](src/main/java/graphtree)
-- **`counting`** — Count Number of Teams [k](src/main/kotlin/countNumberOfTeams), Count of Balloon [j](src/main/java/countofballoon), First Unique Character [j](src/main/java/firstuniquechar)
+- **`counting`** — Count Number of Teams [k](src/main/kotlin/countNumberOfTeams), Count of Balloon [j](src/main/java/countofballoon), First Unique Character [j](src/main/java/firstuniquechar), Smallest Missing Positive Integer [j](src/main/java/smallestpositiveinteger)
 - **`cycle`** — Rotate Linked List [j](src/main/java/rotatelinkedlist)
 - **`deque`** — Maximum Twin Pair Sum [j](src/main/java/pagereadcounter), Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
 - **`design`** — Agent Assignment [j](src/main/java/agentassignment), Deck of Cards [j](src/main/java/deckofcards), Design Search Autocomplete [k](src/main/kotlin/searchString), Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding), LRU Cache [j](src/main/java/lrucache), Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
@@ -168,9 +169,10 @@ Tests for the generator: `cd tools && python3 test_gen_index.py`.
 - **`queue`** — Graph Valid Tree [j](src/main/java/graphtree), Level Order Traversal [j](src/main/java/levelordertraversalofbinarytree)
 - **`rate-limiting`** — Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
 - **`recursion`** — Climbing Stairs [j](src/main/java/staircase), Invert Binary Tree [j](src/main/java/invertbinarytree), Lucky Number [j](src/main/java/luckynumber), Merge Sort [j](src/main/java/mergesort), Multiply Without the Operator [j](src/main/java/multiply), Quick Sort [j](src/main/java/quicksort)
+- **`regex`** — Fresh Promo Code [j](src/main/java/freshpromocode), Search Suggestions System [j](src/main/java/searchsuggestions)
 - **`simulation`** — Agent Assignment [j](src/main/java/agentassignment), Average Waiting Time [k](src/main/kotlin/averageWaitingTime), FizzBuzz [k](src/main/kotlin/fizzBuzz), Spiral Matrix [j](src/main/java/spiraltraversal)
 - **`singleton`** — Event Dispatcher — Live Coding Review [j](src/main/java/db/livecoding)
-- **`sliding-window`** — Contiguous Range Sum [k](src/main/kotlin/subsetSum), Fresh Promo Code [j](src/main/java/freshpromocode), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
+- **`sliding-window`** — Contiguous Range Sum [k](src/main/kotlin/subsetSum), Longest Substring Without Repeating Characters [j](src/main/java/longestsubstring) [k](src/main/kotlin/longestSubstring), Longest Unique Subarray [j](src/main/java/longestuniquesubarray), Rate Limiter — Sliding Window [j](src/main/java/ratechecker)
 - **`sorted-array`** — Binary Search [j](src/main/java/binarysearch)
 - **`sorting`** — Group Anagrams [j](src/main/java/groupedanagram), Heap Sort [j](src/main/java/heapsort), Merge Sort [j](src/main/java/mergesort), Minimum Circular Alignment Cost [j](src/main/java/angle), Quick Sort [j](src/main/java/quicksort), Selection Sort [j](src/main/java/selectionsort), Sort Colors [k](src/main/kotlin/sortColors), Squares of a Sorted Array [k](src/main/kotlin/squaresOfSortedArray)
 - **`stack`** — Valid Parentheses [j](src/main/java/validparenthesis) [k](src/main/kotlin/validParenthesis)
