@@ -193,9 +193,9 @@ def render(problems):
             "",
             "## By pattern",
             "",
-            "Each problem lives in the directory named here. A problem usually uses more"
-            " than one technique, so the pattern is the primary one; see [By"
-            " technique](#by-technique) for every technique it touches.",
+            "The primary technique each problem drills. Most problems use more than one,"
+            " so this is a single best answer rather than the whole story; see [By"
+            " technique](#by-technique) for every technique a solution touches.",
             "",
             render_pattern_index(problems),
             "",
