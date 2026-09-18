@@ -1,6 +1,8 @@
 ---
 title: Subarray Sum Equals K
 slug: subarray-sum-equals-k
+leetcode: 560
+difficulty: Medium
 pattern: prefix-sum
 tags: [prefix-sum, hashmap, array]
 aliases: [count contiguous subarrays with a target sum]

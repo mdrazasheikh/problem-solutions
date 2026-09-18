@@ -1,6 +1,8 @@
 ---
 title: Longest Consecutive Sequence
 slug: longest-consecutive-sequence
+leetcode: 128
+difficulty: Medium
 pattern: hashing
 tags: [hashset, array]
 aliases: [longest run of consecutive integers, unsorted consecutive streak]

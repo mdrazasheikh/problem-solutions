@@ -1,6 +1,8 @@
 ---
 title: Binary Search
 slug: binary-search
+leetcode: 704
+difficulty: Easy
 pattern: binary-search
 tags: [binary-search, array, sorted-array]
 aliases: [search a sorted array, find target index]

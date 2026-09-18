@@ -14,8 +14,12 @@ def write(path, text):
 
 
 def frontmatter(title, slug, tags="", aliases="", time="O(n)", space="O(1)", status="",
-                pattern="arrays"):
+                pattern="arrays", leetcode="", difficulty=""):
     lines = [f"title: {title}", f"slug: {slug}"]
+    if leetcode:
+        lines.append(f"leetcode: {leetcode}")
+    if difficulty:
+        lines.append(f"difficulty: {difficulty}")
     if pattern:
         lines.append(f"pattern: {pattern}")
     if status:
@@ -156,6 +160,56 @@ class Render(RepoFixture):
         self.solution("java", "b", title="JavaOnly", slug="java-only")
         block = gen_index.render(gen_index.collect(self.root))
         self.assertIn("**2 problems** — 2 in Java, 1 in Kotlin, 1 solved in both.", block)
+
+
+class LeetCode(RepoFixture):
+    def test_number_is_shown_when_present(self):
+        self.solution("java", "twosum", title="Two Sum", slug="two-sum", leetcode="1")
+        row = gen_index.render_table(gen_index.collect(self.root)).splitlines()[2]
+        self.assertEqual("1", row.split("|")[2].strip())
+
+    def test_absent_number_renders_as_a_dash(self):
+        self.solution("java", "ratechecker", title="Rate Limiter", slug="rl")
+        row = gen_index.render_table(gen_index.collect(self.root)).splitlines()[2]
+        self.assertEqual(gen_index.NONE, row.split("|")[2].strip())
+
+    def test_number_carries_over_from_either_language(self):
+        self.solution("java", "twosum", title="Two Sum", slug="ts", leetcode="1")
+        self.solution("kotlin", "twoSums", title="Two Sum", slug="ts")
+        self.assertEqual("1", gen_index.collect(self.root)["ts"]["leetcode"])
+
+
+class Difficulty(RepoFixture):
+    def test_rating_is_shown_when_present(self):
+        self.solution("java", "twosum", title="Two Sum", slug="ts", leetcode="1",
+                      difficulty="Easy")
+        row = gen_index.render_table(gen_index.collect(self.root)).splitlines()[2]
+        self.assertEqual("Easy", row.split("|")[3].strip())
+
+    def test_absent_rating_renders_as_a_dash(self):
+        self.solution("java", "ratechecker", title="Rate Limiter", slug="rl")
+        row = gen_index.render_table(gen_index.collect(self.root)).splitlines()[2]
+        self.assertEqual(gen_index.NONE, row.split("|")[3].strip())
+
+    def test_rejects_an_unknown_rating(self):
+        self.solution("java", "x", title="X", slug="x", leetcode="1",
+                      difficulty="Trivial")
+        with self.assertRaises(gen_index.IndexError_) as caught:
+            gen_index.collect(self.root)
+        self.assertIn("Trivial", str(caught.exception))
+
+    def test_rejects_a_rating_without_a_leetcode_number(self):
+        self.solution("java", "x", title="X", slug="x", difficulty="Easy")
+        with self.assertRaises(gen_index.IndexError_) as caught:
+            gen_index.collect(self.root)
+        self.assertIn("leetcode", str(caught.exception))
+
+    def test_summary_counts_the_rated_problems(self):
+        self.solution("java", "a", title="A", slug="a", leetcode="1", difficulty="Easy")
+        self.solution("java", "b", title="B", slug="b", leetcode="2", difficulty="Hard")
+        self.solution("java", "c", title="C", slug="c")
+        block = gen_index.render(gen_index.collect(self.root))
+        self.assertIn("2 are from LeetCode (1 easy, 1 hard)", block)
 
 
 class Pattern(RepoFixture):

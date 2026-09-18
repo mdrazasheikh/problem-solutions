@@ -1,6 +1,8 @@
 ---
 title: Smallest Missing Positive Integer
 slug: smallest-missing-positive
+leetcode: 41
+difficulty: Hard
 pattern: hashing
 tags: [array, counting, boolean-sieve]
 aliases: [first missing positive, smallest positive not in array]

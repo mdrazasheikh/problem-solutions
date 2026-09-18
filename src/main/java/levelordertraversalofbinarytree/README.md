@@ -1,6 +1,8 @@
 ---
 title: Level Order Traversal
 slug: level-order-traversal
+leetcode: 102
+difficulty: Medium
 pattern: bfs
 status: stub
 tags: [bfs, binary-tree, queue]

@@ -28,6 +28,7 @@ LANG_ORDER = ["Java", "Kotlin"]
 BEGIN = "<!-- BEGIN INDEX -->"
 END = "<!-- END INDEX -->"
 LIST_KEYS = {"tags", "aliases", "related"}
+DIFFICULTIES = ("Easy", "Medium", "Hard")
 NONE = "—"
 STATUS_MARK = "⚠️"
 
@@ -87,12 +88,24 @@ def collect(repo_root):
             entry = problems.setdefault(
                 slug,
                 {"title": meta["title"], "pattern": meta["pattern"], "tags": [],
-             "aliases": [], "links": {}, "status": ""},
+             "aliases": [], "links": {}, "status": "", "leetcode": "",
+             "difficulty": ""},
             )
             if lang in entry["links"]:
                 raise IndexError_(f"{slug}: two {lang} directories claim this slug")
             entry["links"][lang] = readme.parent.relative_to(repo_root).as_posix()
             entry["status"] = meta.get("status", entry.get("status", ""))
+            entry["leetcode"] = meta.get("leetcode", entry.get("leetcode", ""))
+            difficulty = meta.get("difficulty", "")
+            if difficulty and difficulty not in DIFFICULTIES:
+                raise IndexError_(
+                    f"{readme}: difficulty {difficulty!r} is not one of "
+                    + ", ".join(DIFFICULTIES))
+            if difficulty and not meta.get("leetcode"):
+                raise IndexError_(
+                    f"{readme}: difficulty is a LeetCode rating, so it needs a "
+                    "'leetcode' number too")
+            entry["difficulty"] = difficulty or entry.get("difficulty", "")
             entry["time"] = meta.get("time", NONE)
             entry["space"] = meta.get("space", NONE)
             merge(entry["tags"], meta.get("tags", []))
@@ -108,8 +121,8 @@ def merge(target, values):
 
 def render_table(problems):
     lines = [
-        "| Problem | Pattern | Tags | Time | Space | Java | Kotlin |",
-        "|---|---|---|---|---|---|---|",
+        "| Problem | LC | Difficulty | Pattern | Tags | Time | Space | Java | Kotlin |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for slug in sorted(problems, key=lambda s: problems[s]["title"].lower()):
         entry = problems[slug]
@@ -120,6 +133,8 @@ def render_table(problems):
             name += "<br><sub>aka " + ", ".join(entry["aliases"]) + "</sub>"
         cells = [
             name,
+            leetcode_cell(entry["leetcode"]),
+            entry["difficulty"] or NONE,
             f"`{entry['pattern']}`",
             ", ".join(f"`{tag}`" for tag in sorted(entry["tags"])) or NONE,
             f"`{entry['time']}`",
@@ -128,6 +143,16 @@ def render_table(problems):
         cells += [link_cell(entry["links"].get(lang)) for lang in LANG_ORDER]
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines)
+
+
+def leetcode_cell(number):
+    """The problem number, unlinked.
+
+    A LeetCode URL is keyed by the problem's slug rather than its number, and the site
+    answers an unauthenticated request with 403 either way, so a generated link cannot be
+    checked. The number alone is enough to find the problem.
+    """
+    return number or NONE
 
 
 def link_cell(path):
@@ -180,12 +205,19 @@ def render(problems):
     java = sum(1 for e in problems.values() if "Java" in e["links"])
     kotlin = sum(1 for e in problems.values() if "Kotlin" in e["links"])
     both = sum(1 for e in problems.values() if len(e["links"]) == 2)
+    rated = [e["difficulty"] for e in problems.values() if e["difficulty"]]
+    breakdown = ", ".join(
+        f"{rated.count(level)} {level.lower()}"
+        for level in DIFFICULTIES if rated.count(level))
     return "\n".join(
         [
             BEGIN,
             "",
             f"**{len(problems)} problems** — {java} in Java, {kotlin} in Kotlin, "
             f"{both} solved in both.",
+            "",
+            f"{len(rated)} are from LeetCode ({breakdown}); the rest come from Codility,"
+            " HackerRank, interviews, or are plain algorithm implementations.",
             "",
             "## All solutions",
             "",

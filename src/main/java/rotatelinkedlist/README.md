@@ -1,6 +1,8 @@
 ---
 title: Rotate Linked List
 slug: rotate-linked-list
+leetcode: 61
+difficulty: Medium
 pattern: linked-list
 tags: [linked-list, two-pointers, cycle]
 aliases: [rotate a list right by k, ring and break]

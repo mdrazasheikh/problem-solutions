@@ -1,6 +1,8 @@
 ---
 title: Search Suggestions System
 slug: search-suggestions-system
+leetcode: 1268
+difficulty: Medium
 pattern: prefix-search
 tags: [string, prefix, sorting, autocomplete]
 aliases: [suggestions per growing prefix, typeahead over a list]

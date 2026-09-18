@@ -1,9 +1,11 @@
 ---
 title: House Robber
 slug: house-robber
+leetcode: 198
+difficulty: Medium
 pattern: dynamic-programming
 tags: [dynamic-programming, array]
-aliases: [leetcode 198, maximum sum of non adjacent values]
+aliases: [maximum sum of non adjacent values]
 time: O(n)
 space: O(1)
 ---

@@ -1,6 +1,8 @@
 ---
 title: Longest Substring Without Repeating Characters
 slug: longest-substring-without-repeating-characters
+leetcode: 3
+difficulty: Medium
 pattern: sliding-window
 tags: [sliding-window, hashmap, string, two-pointers]
 aliases: [longest unique substring, no repeating characters, longest substring with distinct chars]

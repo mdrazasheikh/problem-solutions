@@ -1,6 +1,8 @@
 ---
 title: Graph Valid Tree
 slug: graph-valid-tree
+leetcode: 261
+difficulty: Medium
 pattern: bfs
 tags: [bfs, graph, adjacency-list, queue, connected-components]
 aliases: [is this graph a tree, connected and acyclic, detect cycle undirected]

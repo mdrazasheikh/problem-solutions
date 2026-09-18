@@ -1,6 +1,8 @@
 ---
 title: Missing Number
 slug: missing-number
+leetcode: 268
+difficulty: Easy
 pattern: math
 tags: [math, array, gauss-sum]
 aliases: [find the missing value from 0 to n, sum difference]

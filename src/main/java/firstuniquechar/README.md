@@ -1,6 +1,8 @@
 ---
 title: First Unique Character
 slug: first-unique-character
+leetcode: 387
+difficulty: Easy
 pattern: hashing
 tags: [array, counting, string]
 aliases: [first non repeating character]

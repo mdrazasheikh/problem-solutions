@@ -1,6 +1,8 @@
 ---
 title: Two Sum
 slug: two-sum
+leetcode: 1
+difficulty: Easy
 pattern: hashing
 tags: [hashmap, array]
 aliases: [two indices that add to a target, complement lookup]

@@ -1,6 +1,8 @@
 ---
 title: Levenshtein Distance
 slug: levenshtein-distance
+leetcode: 72
+difficulty: Medium
 pattern: dynamic-programming
 tags: [dynamic-programming, string, edit-distance, 2d-dp]
 aliases: [edit distance, minimum edits to convert one string to another]

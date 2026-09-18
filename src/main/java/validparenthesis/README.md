@@ -1,6 +1,8 @@
 ---
 title: Valid Parentheses
 slug: valid-parentheses
+leetcode: 20
+difficulty: Easy
 pattern: stack
 tags: [stack, string]
 aliases: [balanced brackets, matching parentheses]

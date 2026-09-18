@@ -1,9 +1,11 @@
 ---
 title: Design Search Autocomplete
 slug: design-search-autocomplete
+leetcode: 642
+difficulty: Hard
 pattern: prefix-search
 tags: [trie, string, autocomplete, design, prefix]
-aliases: [leetcode 642, autocomplete system, trie suggestions]
+aliases: [autocomplete system, trie suggestions]
 time: O(p + r)
 space: O(n * l)
 ---

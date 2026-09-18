@@ -1,9 +1,11 @@
 ---
 title: Add Two Numbers
 slug: add-two-numbers
+leetcode: 2
+difficulty: Medium
 pattern: linked-list
 tags: [linked-list, math, carry]
-aliases: [sum two numbers stored as linked lists, leetcode 2]
+aliases: [sum two numbers stored as linked lists]
 time: O(max(m, n))
 space: O(1)
 ---

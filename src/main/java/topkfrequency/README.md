@@ -1,9 +1,11 @@
 ---
 title: Top K Frequent Elements
 slug: top-k-frequent-elements
+leetcode: 347
+difficulty: Medium
 pattern: heap
 tags: [heap, priority-queue, hashmap, counting, bucket-sort, array]
-aliases: [k most frequent numbers, most common elements, leetcode 347]
+aliases: [k most frequent numbers, most common elements]
 time: O(n log k)
 space: O(n)
 ---

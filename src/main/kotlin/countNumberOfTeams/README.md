@@ -1,9 +1,11 @@
 ---
 title: Count Number of Teams
 slug: count-number-of-teams
+leetcode: 1395
+difficulty: Medium
 pattern: arrays
 tags: [array, counting, brute-force]
-aliases: [leetcode 1395, increasing or decreasing triplets]
+aliases: [increasing or decreasing triplets]
 time: O(n^2)
 space: O(1)
 ---

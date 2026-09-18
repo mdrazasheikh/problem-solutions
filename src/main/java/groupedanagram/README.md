@@ -1,6 +1,8 @@
 ---
 title: Group Anagrams
 slug: group-anagrams
+leetcode: 49
+difficulty: Medium
 pattern: hashing
 tags: [hashmap, sorting, string]
 aliases: [group words with the same letters, anagram buckets]

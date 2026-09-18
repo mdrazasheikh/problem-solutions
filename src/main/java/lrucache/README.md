@@ -1,6 +1,8 @@
 ---
 title: LRU Cache
 slug: lru-cache
+leetcode: 146
+difficulty: Medium
 pattern: design
 tags: [design, hashmap, doubly-linked-list, cache]
 aliases: [least recently used cache, eviction policy, O(1) cache]

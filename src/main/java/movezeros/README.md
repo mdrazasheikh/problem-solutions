@@ -1,6 +1,8 @@
 ---
 title: Move Zeroes
 slug: move-zeroes
+leetcode: 283
+difficulty: Easy
 pattern: two-pointers
 tags: [array, two-pointers, in-place]
 aliases: [move zeros to the end, stable partition]

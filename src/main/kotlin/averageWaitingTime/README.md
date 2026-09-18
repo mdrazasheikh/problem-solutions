@@ -1,9 +1,11 @@
 ---
 title: Average Waiting Time
 slug: average-waiting-time
+leetcode: 1701
+difficulty: Medium
 pattern: greedy
 tags: [simulation, greedy, array]
-aliases: [leetcode 1701, single chef restaurant queue]
+aliases: [single chef restaurant queue]
 time: O(n)
 space: O(1)
 ---

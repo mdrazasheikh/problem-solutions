@@ -1,9 +1,11 @@
 ---
 title: Squares of a Sorted Array
 slug: squares-of-sorted-array
+leetcode: 977
+difficulty: Easy
 pattern: two-pointers
 tags: [two-pointers, array, sorting]
-aliases: [leetcode 977, sorted squares]
+aliases: [sorted squares]
 time: O(n)
 space: O(n)
 ---

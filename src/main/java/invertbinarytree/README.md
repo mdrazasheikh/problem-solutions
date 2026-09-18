@@ -1,6 +1,8 @@
 ---
 title: Invert Binary Tree
 slug: invert-binary-tree
+leetcode: 226
+difficulty: Easy
 pattern: trees
 tags: [binary-tree, recursion, dfs]
 aliases: [mirror a binary tree, swap left and right children]

@@ -1,9 +1,11 @@
 ---
 title: Longest Ideal Subsequence
 slug: longest-ideal-subsequence
+leetcode: 2370
+difficulty: Medium
 pattern: dynamic-programming
 tags: [dynamic-programming, string, alphabet]
-aliases: [leetcode 2370, adjacent letters within k]
+aliases: [adjacent letters within k]
 time: O(n)
 space: O(1)
 ---

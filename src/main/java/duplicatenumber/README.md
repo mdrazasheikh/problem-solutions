@@ -1,6 +1,8 @@
 ---
 title: Contains Duplicate
 slug: contains-duplicate
+leetcode: 217
+difficulty: Easy
 pattern: hashing
 tags: [hashset, array]
 aliases: [array has a repeated value, duplicate number, detect duplicates]

@@ -1,6 +1,8 @@
 ---
 title: Maximum Twin Pair Sum
 slug: maximum-twin-pair-sum
+leetcode: 2130
+difficulty: Medium
 pattern: linked-list
 tags: [linked-list, deque, two-pointers]
 aliases: [maximum pages, twin sum of a linked list, max sum of first and last pair]

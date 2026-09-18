@@ -1,6 +1,8 @@
 ---
 title: Climbing Stairs
 slug: climbing-stairs
+leetcode: 70
+difficulty: Easy
 pattern: dynamic-programming
 tags: [dynamic-programming, recursion, tabulation]
 aliases: [staircase ways, count step combinations]

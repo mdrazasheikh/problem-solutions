@@ -1,9 +1,11 @@
 ---
 title: Merge Two Sorted Lists
 slug: merge-two-sorted-lists
+leetcode: 21
+difficulty: Easy
 pattern: linked-list
 tags: [linked-list, two-pointers, merge]
-aliases: [merge two sorted linked lists, leetcode 21]
+aliases: [merge two sorted linked lists]
 time: O(m + n)
 space: O(1)
 ---

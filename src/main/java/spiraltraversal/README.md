@@ -1,6 +1,8 @@
 ---
 title: Spiral Matrix
 slug: spiral-matrix
+leetcode: 54
+difficulty: Medium
 pattern: arrays
 tags: [matrix, simulation, boundaries]
 aliases: [spiral order traversal, clockwise matrix walk]

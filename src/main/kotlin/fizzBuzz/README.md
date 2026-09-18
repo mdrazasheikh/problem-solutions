@@ -1,6 +1,8 @@
 ---
 title: FizzBuzz
 slug: fizzbuzz
+leetcode: 412
+difficulty: Easy
 pattern: math
 tags: [math, string, simulation]
 aliases: [fizz buzz multiples of three and five]

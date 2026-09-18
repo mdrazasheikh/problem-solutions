@@ -1,6 +1,8 @@
 ---
 title: Count of Balloon
 slug: count-of-balloon
+leetcode: 1189
+difficulty: Easy
 pattern: hashing
 tags: [hashmap, counting, string]
 aliases: [maximum number of balloons, form word from letters]
